@@ -1,4 +1,4 @@
-XML parsing
+XML разбор
 ===========
 
 .. image:: https://farm3.staticflickr.com/2808/33888714601_a1f7d020a2_k_d.jpg
@@ -6,11 +6,11 @@ XML parsing
 untangle
 --------
 
-`untangle <https://github.com/stchris/untangle>`_ is a simple library which
-takes an XML document and returns a Python object which mirrors the nodes and
-attributes in its structure.
+`untangle <https://github.com/stchris/untangle>`_ простая библиотека, 
+которая берет XML-документ и возвращает объект Python, который отражает 
+узлы и атрибуты в его структуре.
 
-For example, an XML file like this:
+Например, для XML файла:
 
 .. code-block:: xml
 
@@ -19,28 +19,28 @@ For example, an XML file like this:
         <child name="child1">
     </root>
 
-can be loaded like this:
+можно загрузить следующим образом:
 
 .. code-block:: python
 
     import untangle
     obj = untangle.parse('path/to/file.xml')
 
-and then you can get the child elements name like this:
+и затем вы можете получить имя дочерних элементов следующим образом:
 
 .. code-block:: python
 
     obj.root.child['name']
 
-untangle also supports loading XML from a string or an URL.
+untangle акже поддерживает загрузку XML из строки или URL-адреса.
 
 xmltodict
 ---------
 
-`xmltodict <http://github.com/martinblech/xmltodict>`_ is another simple
-library that aims at making XML feel like working with JSON.
+`xmltodict <http://github.com/martinblech/xmltodict>`_ еще одна простая 
+библиотека, цель которой - заставить XML работать с JSON.
 
-An XML file like this:
+XML файл:
 
 .. code-block:: xml
 
@@ -54,7 +54,7 @@ An XML file like this:
       </plus>
     </mydocument>
 
-can be loaded into a Python dict like this:
+могут быть загружены в Python dict следующим образом:
 
 .. code-block:: python
 
@@ -63,7 +63,8 @@ can be loaded into a Python dict like this:
     with open('path/to/file.xml') as fd:
         doc = xmltodict.parse(fd.read())
 
-and then you can access elements, attributes and values like this:
+а затем вы можете получить доступ к элементам, атрибутам и значениям
+следующим образом:
 
 .. code-block:: python
 
@@ -72,6 +73,6 @@ and then you can access elements, attributes and values like this:
     doc['mydocument']['plus']['@a'] # == u'complex'
     doc['mydocument']['plus']['#text'] # == u'element as well'
 
-xmltodict also lets you roundtrip back to XML with the unparse function,
-has a streaming mode suitable for handling files that don't fit in memory
-and supports namespaces.
+xmltodict также позволяет вам вернуться в XML с помощью функции unparse, 
+иметь режим потоковой передачи, подходящий для обработки файлов, которые 
+не вписываются в память и поддерживать пространства имен.
